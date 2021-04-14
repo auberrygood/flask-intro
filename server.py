@@ -38,11 +38,7 @@ def say_hello():
         <form action="/greet">
           What's your name? <input type="text" name="person">
 
-
-'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza',
-    'oh-so-not-meh', 'brilliant', 'ducky', 'coolio', 'incredible',
-    'wonderful', 'smashing', 'lovely']
-
+          Select a compliment:
           <select name="compliment">
                 <option value="awesome">awesome</option>
                 <option value="terrific">terrific</option>
@@ -52,8 +48,10 @@ def say_hello():
                 <option value="ducky">ducky</option>
                 <option value="coolio">coolio</option>
                 <option value="incredible">incredible</option>
-                <option value="fantabulouswonderful">fantabulouswonderful</option>
-                <option value="wowzasmashing">wowzasmashing</option>
+                <option value="fantabulous">fantabulous</option>
+                <option value="wonderful">wonderful</option>
+                <option value="smashing">smashing</option>
+                <option value="wowza">wowza</option>
                 <option value="lovely">lovely</option>
             </select>
           <input type="submit" value="Submit">
@@ -69,8 +67,9 @@ def greet_person():
 
     player = request.args.get("person")
 
-    compliment = choice(AWESOMENESS)
-
+#     compliment = choice(AWESOMENESS)
+    compliment = request.args.get("compliment")
+    
     return """
     <!doctype html>
     <html>
